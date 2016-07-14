@@ -63,18 +63,33 @@ audio#audio
 
 
 footer
-    color: #fefefe
-    background-color: #2a2a2a
-    font-size: 11px
+    position: absolute
+    bottom: 0
+    width: 100%
+    padding-top: 1em
+    padding-bottom: 2em
+    color: #3a3a3a
+    background-color: #eaeaea
+    font-size: 14px
     .explanation
-        @include column()
-        width: 100%
         @media (min-width: $screen-sm-min)
+            display: inline-block
             width: 66%
         p 
             text-align: left
-    .links
-        @include column()
-        width: 100%
+    .social-links
         @media (min-width: $screen-sm-min)
+            display: inline-block
             width: 33%
+        ul
+            padding: 0
+            @include clearfix()
+            float: left
+            @media (min-width: $screen-sm-min)
+                float: right
+            li 
+                display: inline-block
+                margin-right: 12px
+                @media (min-width: $screen-sm-min)
+                    margin-left: 12px
+
