@@ -1,0 +1,41 @@
+// _mixins.sass
+
+@import 'variables.sass'
+
+@mixin clearfix()
+    &::after 
+        display: table
+        content: ' '
+        clear: both
+
+@mixin container()
+    @include clearfix()
+    margin-left: auto
+    margin-right: auto
+    padding-left: 15px
+    padding-right: 15px
+    @media (min-width: $screen-sm-min)
+        width: 750px
+    @media (min-width: $screen-md-min)
+        width: 970px
+    @media (min-width: $screen-lg-min)
+        width: 1170px
+    &::before
+        display: table
+        content: ' '
+
+@mixin row() 
+    @include clearfix()
+    margin-left: -15px
+    margin-right: -15px
+    &::before
+        display: table
+        content: ' '    
+
+@mixin column()
+    position: relative
+    float: left
+    min-height: 1px
+    padding-left: 15px
+    padding-right: 15px
+    margin: 0

@@ -1,0 +1,100 @@
+// Animation duration should be set inline through React
+
+$bg_z_index: 400
+$mask_z_index: 300
+$filler_z_index: 100
+$spinner_size: 50px
+
+.morse-output
+  .loader-wrapper
+    display: none
+    // float: left
+    margin: 0 auto
+    position: relative
+    background: white
+
+    .wrapper-bg
+      display: block
+      position: absolute
+      top: 0
+      left: 0
+      width: #{$spinner_size}
+      height: #{$spinner_size}
+      border-radius: 50%
+      border: 8px solid rgba(10,10,10,0.15)
+      z-index: $bg_z_index
+  &.waiting .loader-wrapper
+    display: block
+    
+
+@mixin timer($item, $duration, $size, $color, $border, $hover: running)
+  #{$item}, #{$item} * 
+    box-sizing: border-box
+
+  #{$item} 
+    width: $size
+    height: $size
+  
+  #{$item} .loader
+    width: 50%
+    height: 100%
+    transform-origin: 100% 50%
+    position: absolute
+    background: $color
+    border: #{$border}
+  
+  #{$item} .spinner 
+    border-radius: 100% 0 0 100% / 50% 0 0 50%
+    z-index: 200
+    border-right: none
+    // animation: rota $duration + s linear infinite
+    animation-name: rota
+    animation-duration: $duration + s
+    animation-timing-function: linear
+    animation-iteration-count: infinite
+  
+  #{$item}:hover .spinner,
+  #{$item}:hover .filler, 
+  #{$item}:hover .mask 
+    animation-play-state: $hover
+  
+  #{$item} .filler 
+    border-radius: 0 100% 100% 0 / 0 50% 50% 0
+    left: 50%
+    opacity: 0
+    z-index: $filler_z_index
+    // animation: opa $duration + s steps(1,end) infinite reverse
+    animation-name: opa
+    animation-duration: $duration + s
+    animation-timing-function: steps(1, end)
+    animation-iteration-count: infinite
+    animation-direction: reverse
+    border-left: none
+  
+  #{$item} .mask 
+    width: 50%
+    height: 100%
+    position: absolute
+    background: inherit
+    opacity: 1
+    z-index: $mask_z_index
+    // animation: opa $duration + s steps(1,end) infinite
+    animation-name: opa
+    animation-duration: $duration + s
+    animation-timing-function: steps(1, end)
+    animation-iteration-count: infinite
+  
+  @keyframes rota 
+    0% 
+      transform: rotate(0deg)
+    100% 
+      transform: rotate(360deg)
+  
+  @keyframes opa
+    0% 
+      opacity: 1
+    50%, 100% 
+      opacity: 0
+  
+
+@include timer('.loader-wrapper', 2, #{$spinner_size}, #FFF, '8px solid black')
