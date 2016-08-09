@@ -1,5 +1,7 @@
 // Animation duration should be set inline through React
 
+@import 'variables.sass'
+
 $bg_z_index: 400
 $mask_z_index: 300
 $filler_z_index: 100
@@ -11,7 +13,8 @@ $spinner_size: 50px
     // float: left
     margin: 0 auto
     position: relative
-    background: white
+    background: $cream
+    border-radius: 50%
 
     .wrapper-bg
       display: block
@@ -23,6 +26,7 @@ $spinner_size: 50px
       border-radius: 50%
       border: 8px solid rgba(10,10,10,0.15)
       z-index: $bg_z_index
+
   &.waiting .loader-wrapper
     display: block
     
@@ -97,4 +101,4 @@ $spinner_size: 50px
       opacity: 0
   
 
-@include timer('.loader-wrapper', 2, #{$spinner_size}, #FFF, '8px solid black')
+@include timer('.loader-wrapper', 2, #{$spinner_size}, transparent, '8px solid #3a3a3a')

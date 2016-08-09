@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --progress --inline --colors"
   },
-  "author": "",
+  "author": "Jamie Robertson",
+  "url": "https://github.com/JamieRobertson/morse-code-machine", 
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.10.4",

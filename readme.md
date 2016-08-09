@@ -1,15 +1,19 @@
-<!-- readme.md -->
+
+<img src="https://github.com/JamieRobertson/morse-code-machine/blob/master/assets/img/raf-insignia.png" width="80" height="80" />
 
 Morse code generator
 --------------------
 
-### Installation
-`npm install [webpack requirements] --save-dev`
+Learn to write morse code and have fun with this easy to use tool.  
 
-### Webpack requirements
-npm install --save-dev webpack
-npm install --save-dev webpack-dev-server
-......
-npm install --save-dev babel-loader
-npm install --save-dev sass-loader css-loader style-loader
-npm install --save-dev autoprefixer-loader
+### How to use
+Use the spacebar to write morse code.  
+A short press is a **dit [ . ]** whereas a long press is a **dah [ - ]**  
+If you make a mistake you can remove the last character with the delete key.
+
+### How to build + run project 
+- install node + npm
+- install webpack globally: `npm install webpack -g`
+- install project requirements: `npm install`
+- run webpack-dev-server: `npm start`
+- view output on `http://localhost:8080` (default)

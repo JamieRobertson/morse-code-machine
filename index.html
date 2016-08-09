@@ -3,35 +3,172 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Morse code machine</title>
-	<!-- <link href='https://fonts.googleapis.com/css?family=Roboto+Mono:500,400' rel='stylesheet' type='text/css'> -->
+	<link href='https://fonts.googleapis.com/css?family=Roboto+Mono:500,400' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="bundle.css">
 </head>
 <body>
 	<section>
+		<article><figure><!-- <img src="/assets/img/raf-insignia.png" width="80" height="80" /> --></figure></article>
 		<article>
-			<figure>
-				<p style="text-align: center;"><b>.</b> dit &nbsp;<span style="color: #bbb;">|</span>&nbsp; dah <b>&ndash;</b></p>
+			<figure class="col-6">
+				<!-- <p style="text-align: center;">dit <b>.</b>&nbsp; <span style="color: #bbb;">|</span>&nbsp; dah <b>&ndash;</b></p> -->
 				<!-- <img src="assets/img/1024px-Morse_code_tree3.png" class="reference"> -->
-				<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Morse_code_tree3.png/1024px-Morse_code_tree3.png" class="reference">
+				<!-- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Morse_code_tree3.png/1024px-Morse_code_tree3.png" class="reference"> -->
+				<div class="morse-poster">
+					<div class="inner">
+						<h4>International Morse Code</h4>
+						<ul>
+							<li>A .-  	</li>
+						    <li>B -...  </li>
+						    <li>C -.-.  </li>
+						    <li>D -..  	</li>
+						    <li>E .  	</li>
+						    <li>F ..-.  </li>
+						    <li>G --.  	</li>
+						    <li>H ....  </li>
+						    <li>I ..  	</li>
+						    <li>J .---  </li>
+						    <li>K -.-  	</li>
+						    <li>L .-..  </li>
+						    <li>M --  	</li>
+						</ul>
+						<ul>
+						    <li>N -.  	</li>
+						    <li>O ---  	</li>
+						    <li>P .--.  </li>
+						    <li>Q --.-  </li>
+						    <li>R .-.  	</li>
+						    <li>S ...  	</li>
+						    <li>T -  	</li>
+						    <li>U ..-  	</li>
+						    <li>V ...-  </li>
+						    <li>W .--  	</li>
+						    <li>X -..-  </li>
+						    <li>Y -.--  </li>
+						    <li>Z --..  </li>
+						</ul>
+						<ul>
+						    <li>0 -----  </li>
+						    <li>1 .----  </li>
+						    <li>2 ..---  </li>
+						    <li>3 ...--  </li>
+						    <li>4 ....-  </li>
+						    <li>5 .....  </li>
+						    <li>6 -....  </li>
+						    <li>7 --...  </li>
+						    <li>8 ---..  </li>
+						    <li>9 ----.  </li>
+						    <li>. .-.-.- </li>
+						    <li>, --..-- </li>
+						    <li>? ..--.. </li>
+						</ul>
+						<!--
+						    <span>&Auml;</span> .-.-
+						    <span>&Aacute;</span> .--.-
+						    <span>&Aring;</span> .--.-
+						    <span>&Agrave;</span> .--.-
+						    <span>Ch</span> ----
+						    <span>&Ccedil;</span> "-.-..
+						    <span>&ETH;</span> "..--.
+						    <span>&Eacute;</span> "..-..
+						    <span>&Egrave;</span> ".-..-
+						    <span>&Gcirc;</span> "--.-.
+						    <span>&Hcirc;</span> "-.--.
+						    <span>&Jcirc;</span> ".---.
+						    <span>&Ntilde;</span> "--.--
+						    
+						    <span>&Ouml;</span> ---.
+						    <span>&Scirc;</span> ...-.
+						    <span>&Uuml;</span> ..--
+						    <span>&thorn;</span> .--..
+
+						    <span>;</span> -.-.-. 
+						    <span>:</span> ---...    
+						    <span>!</span> -.-.-- 
+						    <span>'</span> .----.
+						    <span>&quot;</span> .-..-.
+						    <span>-</span> -....-
+						    <span>+</span> .-.-.
+						    <span>_</span> ..--.-
+						    <span>/</span> -..-.
+						    <span>@</span> .--.-.
+						    <span>=</span> -...-
+						-->
+					</div>
+				</div>
+			</figure>
+			<figure class="col-6">
+				<div id="app"></div>
 			</figure>
 		</article>
 	</section>
 
-	<div id="app"></div>
 
 	<footer>
 		<section>
 			<article>
 				<figure class="explanation">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+					<p>Use the <b>spacebar</b> to write morse code. <br />
+					A short press is a <i>dit [ . ]</i> whereas a long press is a <i>dah [ - ]</i>. <br />
+					If you make a mistake you can remove the last character with the <b>delete key</b>.</p>
 				</figure>
 				<figure class="social-links">
 					<ul>
-						<li><a href="" alt="Share on facebook" title="Share on facebook">Facebook</a></li>
-						<li><a href="" alt="Share on twitter" title="Share on twitter">Twitter</a></li>
-						<li><a href="" alt="Share on email" title="Share on email">Email</a></li>
+						<!--
+						<li><a href="" alt="Share on facebook" title="Share on facebook">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 80 80" enable-background="new 0 0 80 80" xml:space="preserve">
+								<g>
+									<path display="inline" d="M54,11.1v8.8h-5.3c-1.9,0-3.2,0.4-3.9,1.2c-0.7,0.8-1,2-1,3.6v6.3h9.8L52.3,41h-8.5v25.4H33.6V41H25v-9.9
+										h8.5v-7.3c0-4.2,1.2-7.4,3.5-9.7c2.3-2.3,5.4-3.4,9.3-3.4C49.6,10.7,52.2,10.8,54,11.1z"/>
+								</g>
+							</svg>
+						</a></li>
+						<li><a href="" alt="Share on twitter" title="Share on twitter">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 80 80" enable-background="new 0 0 80 80" xml:space="preserve">
+								<g>
+									<path display="inline" d="M67.4,24.3c-1.5,2.2-3.3,4.1-5.4,5.6c0,0.3,0,0.8,0,1.4c0,2.9-0.4,5.8-1.3,8.7c-0.8,2.9-2.1,5.7-3.9,8.3
+										c-1.7,2.7-3.8,5-6.2,7s-5.3,3.7-8.6,4.9s-7,1.8-10.8,1.8c-6,0-11.6-1.6-16.6-4.9c0.8,0.1,1.7,0.1,2.6,0.1c5,0,9.5-1.5,13.4-4.6
+										c-2.3,0-4.4-0.8-6.3-2.2c-1.9-1.4-3.1-3.2-3.8-5.3c0.7,0.1,1.4,0.2,2,0.2c1,0,1.9-0.1,2.8-0.4c-2.5-0.5-4.6-1.8-6.2-3.7
+										s-2.5-4.3-2.5-6.9v-0.1c1.5,0.8,3.1,1.3,4.9,1.4c-1.5-1-2.6-2.3-3.5-3.9c-0.9-1.6-1.3-3.3-1.3-5.2c0-2,0.5-3.8,1.5-5.5
+										c2.7,3.3,6,6,9.9,8c3.9,2,8,3.1,12.4,3.3c-0.2-0.8-0.3-1.7-0.3-2.5c0-3,1.1-5.5,3.2-7.7s4.7-3.2,7.7-3.2c3.1,0,5.8,1.1,7.9,3.4
+										c2.4-0.5,4.7-1.3,6.9-2.6c-0.8,2.6-2.4,4.6-4.8,6C63.2,25.8,65.3,25.2,67.4,24.3z"/>
+								</g>
+							</svg>
+						</a></li>
+						<li><a href="" alt="Share with email" title="Share with email">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 80 80" enable-background="new 0 0 80 80" xml:space="preserve">
+								<g>
+									<path d="M65,25.7c0,1.5-0.5,2.9-1.4,4.2c-0.9,1.3-2,2.5-3.4,3.4c-7,4.9-11.3,7.9-13.1,9.1c-0.2,0.1-0.6,0.4-1.2,0.9
+										c-0.6,0.4-1.1,0.8-1.5,1.1c-0.4,0.3-0.9,0.6-1.5,0.9c-0.6,0.3-1.1,0.6-1.6,0.8c-0.5,0.2-1,0.3-1.4,0.3h0h0c-0.4,0-0.9-0.1-1.4-0.3
+										c-0.5-0.2-1-0.4-1.6-0.8c-0.6-0.3-1.1-0.6-1.5-0.9c-0.4-0.3-0.9-0.6-1.5-1.1c-0.6-0.4-1-0.7-1.2-0.9c-1.7-1.2-4.1-2.9-7.3-5.1
+										c-3.2-2.2-5.1-3.5-5.7-4c-1.2-0.8-2.2-1.9-3.3-3.2S15,27.4,15,26.3c0-1.5,0.4-2.7,1.2-3.6c0.8-1,1.9-1.5,3.3-1.5h41.1
+										c1.2,0,2.3,0.4,3.1,1.3C64.6,23.4,65,24.4,65,25.7z M65,33.9V56c0,1.2-0.4,2.3-1.3,3.2c-0.9,0.9-1.9,1.3-3.2,1.3H19.5
+										c-1.2,0-2.3-0.4-3.2-1.3C15.4,58.3,15,57.2,15,56V33.9c0.8,0.9,1.8,1.7,2.8,2.4c6.7,4.6,11.4,7.8,13.9,9.6c1.1,0.8,1.9,1.4,2.6,1.8
+										c0.7,0.4,1.5,0.9,2.6,1.3c1.1,0.5,2.1,0.7,3.1,0.7h0h0c0.9,0,2-0.2,3.1-0.7c1.1-0.5,2-0.9,2.6-1.3c0.7-0.4,1.5-1,2.6-1.8
+										c3.2-2.3,7.8-5.5,13.9-9.6C63.3,35.6,64.2,34.7,65,33.9z"/>
+								</g>
+							</svg>
+						</a></li> 
+						-->
+						<li><a href="https://github.com/JamieRobertson/morse-code-machine" target="_blank">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 80 80" enable-background="new 0 0 80 80" xml:space="preserve">
+								<g>
+									<path d="M68.5,39.7c0,6.2-1.8,11.8-5.4,16.8c-3.6,5-8.3,8.4-14,10.3c-0.7,0.1-1.2,0-1.5-0.3c-0.3-0.3-0.5-0.7-0.5-1.1v-7.8
+										c0-2.4-0.6-4.2-1.9-5.3c1.4-0.1,2.7-0.4,3.8-0.7s2.3-0.8,3.5-1.4c1.2-0.7,2.2-1.5,3-2.5c0.8-1,1.5-2.3,2-3.9
+										c0.5-1.6,0.8-3.5,0.8-5.6c0-3-1-5.5-2.9-7.6c0.9-2.3,0.8-4.8-0.3-7.6c-0.7-0.2-1.7-0.1-3,0.4c-1.3,0.5-2.4,1-3.4,1.6l-1.4,0.9
+										c-2.3-0.6-4.7-1-7.1-1c-2.4,0-4.8,0.3-7.1,1c-0.4-0.3-0.9-0.6-1.6-1c-0.7-0.4-1.7-0.9-3.1-1.4c-1.4-0.6-2.5-0.7-3.2-0.5
+										c-1.1,2.8-1.2,5.3-0.3,7.6c-2,2.1-2.9,4.7-2.9,7.6c0,2.1,0.3,4,0.8,5.6c0.5,1.6,1.2,2.9,1.9,3.9c0.8,1,1.8,1.8,3,2.5
+										c1.2,0.7,2.4,1.2,3.5,1.4s2.4,0.5,3.8,0.7c-1,0.9-1.6,2.2-1.8,3.8c-0.5,0.2-1.1,0.4-1.7,0.6c-0.6,0.1-1.3,0.2-2.1,0.2
+										c-0.8,0-1.6-0.3-2.4-0.8c-0.8-0.5-1.5-1.3-2.1-2.3c-0.5-0.8-1.1-1.4-1.8-1.9c-0.7-0.5-1.3-0.8-1.8-0.9l-0.7-0.1
+										c-0.5,0-0.9,0.1-1.1,0.2s-0.3,0.3-0.2,0.4c0.1,0.2,0.2,0.3,0.3,0.5c0.1,0.2,0.3,0.3,0.5,0.4l0.3,0.2c0.5,0.2,1.1,0.7,1.6,1.4
+										c0.5,0.7,0.9,1.3,1.2,1.9l0.4,0.9c0.3,0.9,0.9,1.7,1.6,2.3c0.8,0.6,1.6,1,2.5,1.1c0.9,0.2,1.8,0.2,2.6,0.3c0.8,0,1.5,0,2.1-0.1
+										l0.9-0.1c0,0.9,0,2,0,3.3c0,1.3,0,1.9,0,2c0,0.4-0.2,0.8-0.5,1.1c-0.3,0.3-0.8,0.4-1.5,0.3c-5.7-1.9-10.4-5.3-14-10.3
+										c-3.6-5-5.4-10.5-5.4-16.8c0-5.2,1.3-9.9,3.8-14.3c2.5-4.4,6-7.8,10.4-10.4c4.4-2.5,9.1-3.8,14.3-3.8c5.2,0,9.9,1.3,14.3,3.8
+										c4.4,2.5,7.8,6,10.4,10.4C67.2,29.8,68.5,34.5,68.5,39.7z"/>
+								</g>
+							</svg><!--
+							-->View on Github
+						</a></li>
 					</ul>
 				</figure>
 			</article>
