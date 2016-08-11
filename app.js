@@ -3,12 +3,26 @@ import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import morseData from './data/data';
 
-
 const spaceBar = 32;
 const enterKey = 13;
 const deleteKey = 46;  // There are two delete buttons
 const backKey = 8;	   // There are two delete buttons
+const audioSrc = './assets/audio/500hz.mp3';
 
+class AudioTone {
+	constructor() {
+		this.song = new Audio;
+		this.song.volume = 0.6;
+		this.song.loop = true;
+		this.song.src = audioSrc;
+	}
+	play() {
+		return this.song.play();
+	}
+	pause() {
+		return this.song.pause();
+	}
+}
 
 class Countdown extends React.Component {
 	calculateSeconds() {
@@ -129,6 +143,7 @@ class App extends React.Component {
 	
 	handleKeyDown(e) {
 		let { isPressed, outputDelay, morseCharTimer } = this.state;
+		let { audio } = this.props;
 		let keyCode = e.keyCode || e.which;
 		// Check for space bar + if is already pressed
 		if (keyCode === spaceBar && !isPressed) { 
@@ -137,6 +152,8 @@ class App extends React.Component {
 			// Reset morse char interval
 			this.stopCounter(this.morseCharInterval);
 			this.setState({morseCharTimer: 0});
+			// Play morse tone
+			audio.play();
 			// Start both counters
 			this.startCounter();
 		}
@@ -148,12 +165,15 @@ class App extends React.Component {
 	
 	handleKeyUp(e) {
 		let { isPressed } = this.state;
+		let { audio } = this.props;
 		let keyCode = e.keyCode || e.which;
 		// Check for space bar + if is already pressed
 		if (keyCode === spaceBar && isPressed) { 
 			this.addMorseChar();
 			this.setState({isPressed: false});
 			this.stopCounter(this.keyDownInterval);
+			// Pause morse tone
+			audio.pause();
 		}
 	}
 
@@ -189,6 +209,6 @@ class App extends React.Component {
 }
 
 ReactDOM.render(
-	<App data={ morseData } />, 
+	<App data={ morseData } audio={ new AudioTone } />, 
 	document.getElementById('app')
 );
