@@ -127,8 +127,11 @@ class App extends React.Component {
 
 	removeStringChar() {
 		// TODO : handle Ch character ?
-		let { outputArray } = this.state;
-		this.setState({outputArray: outputArray.slice(0,-1) });
+		let { outputArray, morseString } = this.state;
+		// For better UX - only delete string char if not waiting
+		if (!morseString) {
+			this.setState({outputArray: outputArray.slice(0,-1) });
+		}
 	}
 
 	addMorseChar() {
@@ -190,6 +193,9 @@ class App extends React.Component {
 		let outputClass = classNames('morse-output', {
 			waiting: morseCharTimer > 0 && morseCharTimer <= outputDelay
 		});
+		let cursorClass = classNames('blinking-cursor', {
+			hidden: outputArray.length > 0
+		})
 
 		let renderNodes = outputArray.map((currentValue, i , arr) => {
 			return (
@@ -201,7 +207,10 @@ class App extends React.Component {
 
 		return (
 			<div className={ outputClass }>
-				<h3>{ renderNodes }</h3>
+				<h3>
+					<i className={ cursorClass }>|</i>
+					{ renderNodes }
+				</h3>
 				<Countdown {...this.state} />
 			</div>
 		);

@@ -1,0 +1,19 @@
+// To be used with an element like this:
+// <i class="blinking-cursor">|</i>
+
+@import 'variables.sass'
+
+$cursor_color: desaturate(lighten($black, 20%) , 80%)
+
+@mixin blinking_cursor
+    font-weight: 100
+    color: $cursor_color
+    text-shadow: none
+    animation: 1.1s blink step-end infinite
+
+@keyframes blink
+    from, to 
+        color: transparent
+  
+    50% 
+        color: $cursor_color
