@@ -1,4 +1,5 @@
-// Create numerical reprisentaion of morse code letters
+// Create numerical representation of morse code letters
+// So that we can lookup number on object to test speed
 
 var output = [];
 
